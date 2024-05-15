@@ -28,12 +28,12 @@ jQuery('#contactform').validate({
 	    $('#msgdiv').remove();
 	    $.ajax({
                 type: "POST",
-                url: "https://engineersahab.com/ui-ux/contactUs.php",
+                url: "contactUs.php",
                 data: $('#contactform').serialize(),
                 success: function(msg) {
                     var msg = $.parseJSON(msg);
                     if(msg.type == 'success')
-                    {
+                    {	
                         $('#contactform').trigger("reset");
                         //return true;
                         $('.msgdiv').append('<div id="msgdiv" class="alert alert-success">'+msg.text+'</div><img src="images/thumb.png">');

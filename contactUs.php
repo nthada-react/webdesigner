@@ -23,7 +23,7 @@ if($post){
     $sender_email   = $post["email"]; //capture sender email
     $contactno   = $post["phone_number"];
     
-    $subject        = "Aashifa Sheikh Porfolio Enquiry";
+    $subject        = "Nitin Thada Porfolio Enquiry";
     $from_email     = 'webdesigner.nitin@gmail.com'; //from email using site domain.
          if(!empty($sender_name) && !empty($sender_email) && !empty($message) && !empty($subject)){
             //php validation, exit outputting json string
@@ -65,7 +65,7 @@ if($post){
                 $subject ='Thank you for contacting Engineer Sahab';
                 //check if the email address is invalid $secure_check
                 if(mail($sender_email, $subject, $message, $headers)){
-                    //echo"sendTo";
+                    echo"Email sent";
                 }
                 exit;
             }else{

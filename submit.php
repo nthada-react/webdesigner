@@ -1,13 +1,13 @@
 <?php
-include('db.php');
+//include('db.php');
 if(isset($_POST) && !empty($_POST) && !empty($_POST['full_name'])){
 	 $fullname = $_POST['full_name'];
 	 $requirement = $_POST['requirement'];
 	 $phone_number = $_POST['phone_number'];
 	 $email = $_POST['email'];
-	 $sql = "INSERT INTO contact_form (full_name,requirement,phone_number,email)
-	 VALUES ('$fullname','$requirement','$phone_number','$email')";
-	 if (mysqli_query($conn, $sql)) {
+	// $sql = "INSERT INTO contact_form (full_name,requirement,phone_number,email)
+	// VALUES ('$fullname','$requirement','$phone_number','$email')";
+	 //if (mysqli_query($conn, $sql)) {
 	     $msg = '<table width="100%" border="1">
                     <tr>
                       <td class="column">
@@ -48,11 +48,16 @@ if(isset($_POST) && !empty($_POST) && !empty($_POST['full_name'])){
 
     // More headers
     $headers .= 'From: <webdesigner.nitin@gmail.com>' . "\r\n";
-	mail($email,"Submit Question",$msg,$headers);
-	} else {
+	 if(mail($email,"Submit Question",$msg,$headers))
+   {
+      echo "Email sent successfully!";  
+   }else{
+      echo "Email not sent.";
+   }
+	/*} else {
 		echo "Error: " . $sql . "" . mysqli_error($conn);
 	 }
 	 mysqli_close($conn);
-	exit();
+	exit();*/
 }
 ?>
