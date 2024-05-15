@@ -65,7 +65,7 @@ if($post){
                 $subject ='Thank you for contacting Engineer Sahab';
                 //check if the email address is invalid $secure_check
                 if(mail($sender_email, $subject, $message, $headers)){
-                    echo"Email sent";
+                    //echo"Email sent";
                 }
                 exit;
             }else{
